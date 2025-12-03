@@ -1,0 +1,196 @@
+import { useState } from "react";
+import { Navigation } from "@/components/layout/Navigation";
+import { Footer } from "@/components/layout/Footer";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { toast } from "sonner";
+
+const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    
+    toast.success("Message sent successfully! We'll get back to you soon.");
+    setIsSubmitting(false);
+    (e.target as HTMLFormElement).reset();
+  };
+
+  return (
+    <main className="min-w-[320px]">
+      <Navigation />
+
+      {/* Hero */}
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-magenta text-primary-foreground">
+        <div className="container mx-auto px-4 md:px-8">
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold leading-none">
+            Let's
+            <br />
+            <span className="text-accent">Talk</span>
+          </h1>
+          <p className="mt-6 text-lg text-primary-foreground/80 max-w-xl">
+            Have a project in mind? We'd love to hear about it. Let's create
+            something bold together.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Form & Info */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Form */}
+            <div>
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-8">
+                Start a <span className="text-magenta">Project</span>
+              </h2>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="font-display text-sm uppercase tracking-wider">
+                      Name *
+                    </label>
+                    <Input
+                      required
+                      placeholder="Your name"
+                      className="h-14 border-2 border-foreground bg-transparent focus:border-magenta"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="font-display text-sm uppercase tracking-wider">
+                      Email *
+                    </label>
+                    <Input
+                      type="email"
+                      required
+                      placeholder="your@email.com"
+                      className="h-14 border-2 border-foreground bg-transparent focus:border-magenta"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="font-display text-sm uppercase tracking-wider">
+                    Company
+                  </label>
+                  <Input
+                    placeholder="Your company"
+                    className="h-14 border-2 border-foreground bg-transparent focus:border-magenta"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="font-display text-sm uppercase tracking-wider">
+                    Project Type
+                  </label>
+                  <select className="w-full h-14 border-2 border-foreground bg-transparent px-4 font-sans focus:border-magenta focus:outline-none">
+                    <option value="">Select a service</option>
+                    <option value="branding">Brand Identity</option>
+                    <option value="web">Web Design & Development</option>
+                    <option value="digital">Digital Campaign</option>
+                    <option value="motion">Motion & Animation</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="font-display text-sm uppercase tracking-wider">
+                    Tell us about your project *
+                  </label>
+                  <Textarea
+                    required
+                    placeholder="Describe your project, goals, and timeline..."
+                    className="min-h-[160px] border-2 border-foreground bg-transparent focus:border-magenta resize-none"
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  variant="magenta"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="w-full md:w-auto"
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                  <ArrowUpRight className="w-5 h-5" />
+                </Button>
+              </form>
+            </div>
+
+            {/* Contact Info */}
+            <div className="lg:pl-12">
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-8">
+                Get in <span className="text-magenta">Touch</span>
+              </h2>
+              <div className="space-y-8">
+                <div className="flex gap-4">
+                  <div className="w-14 h-14 bg-accent text-accent-foreground flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-sm uppercase tracking-wider text-muted-foreground mb-1">
+                      Email
+                    </h3>
+                    <a
+                      href="mailto:hello@bold.agency"
+                      className="text-lg hover:text-magenta transition-colors"
+                    >
+                      hello@bold.agency
+                    </a>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-14 h-14 bg-accent text-accent-foreground flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-sm uppercase tracking-wider text-muted-foreground mb-1">
+                      Phone
+                    </h3>
+                    <a
+                      href="tel:+1234567890"
+                      className="text-lg hover:text-magenta transition-colors"
+                    >
+                      +1 (234) 567-890
+                    </a>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-14 h-14 bg-accent text-accent-foreground flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-sm uppercase tracking-wider text-muted-foreground mb-1">
+                      Office
+                    </h3>
+                    <p className="text-lg">
+                      123 Creative Street
+                      <br />
+                      New York, NY 10001
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Map Placeholder */}
+              <div className="mt-12 aspect-[4/3] bg-muted border-2 border-foreground relative overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80"
+                  alt="Office location"
+                  className="w-full h-full object-cover grayscale"
+                />
+                <div className="absolute inset-0 bg-magenta/20" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+};
+
+export default Contact;
