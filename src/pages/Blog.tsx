@@ -64,14 +64,14 @@ const Blog = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-background">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold leading-none">
             Insights &
             <br />
-            <span className="text-magenta">Ideas</span>
+            <span className="text-primary">Ideas</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-xl">
+          <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
             Thoughts on design, creativity, and building brands that matter.
           </p>
         </div>
@@ -79,10 +79,10 @@ const Blog = () => {
 
       {/* Featured Post */}
       {featuredPost && (
-        <section className="py-8 bg-background">
+        <section className="pb-8 bg-background">
           <div className="container mx-auto px-4 md:px-8">
             <Link to={`/blog/${featuredPost.id}`} className="group block">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 border-2 border-foreground">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden bg-card shadow-elegant">
                 <div className="relative overflow-hidden aspect-[4/3] lg:aspect-auto">
                   <img
                     src={featuredPost.image}
@@ -90,14 +90,14 @@ const Blog = () => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-magenta text-primary-foreground px-4 py-2 font-display text-sm uppercase tracking-wider">
+                    <span className="bg-primary text-primary-foreground px-4 py-1.5 rounded-full font-sans text-xs tracking-wide">
                       Featured
                     </span>
                   </div>
                 </div>
-                <div className="p-6 md:p-12 flex flex-col justify-center">
+                <div className="p-8 md:p-12 flex flex-col justify-center">
                   <div className="flex items-center gap-4 text-muted-foreground text-sm mb-4">
-                    <span className="bg-accent text-accent-foreground px-3 py-1 font-display text-xs uppercase tracking-wider">
+                    <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full font-sans text-xs tracking-wide">
                       {featuredPost.category}
                     </span>
                     <span className="flex items-center gap-2">
@@ -105,15 +105,15 @@ const Blog = () => {
                       {featuredPost.date}
                     </span>
                   </div>
-                  <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 group-hover:text-magenta transition-colors">
+                  <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight">
                     {featuredPost.title}
                   </h2>
-                  <p className="text-muted-foreground text-lg mb-6">
+                  <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
                     {featuredPost.excerpt}
                   </p>
-                  <span className="font-display text-sm uppercase tracking-widest flex items-center gap-2 text-magenta">
+                  <span className="font-sans text-sm tracking-wide flex items-center gap-2 text-primary">
                     Read Article
-                    <ArrowUpRight className="w-4 h-4" />
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
                 </div>
               </div>
@@ -129,14 +129,14 @@ const Blog = () => {
             {regularPosts.map((post) => (
               <Link key={post.id} to={`/blog/${post.id}`} className="group">
                 <article>
-                  <div className="relative overflow-hidden border-2 border-foreground aspect-[4/3] mb-6">
+                  <div className="relative overflow-hidden rounded-2xl aspect-[4/3] mb-6">
                     <img
                       src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="bg-accent text-accent-foreground px-3 py-1 font-display text-xs uppercase tracking-wider">
+                      <span className="bg-accent text-accent-foreground px-4 py-1.5 rounded-full font-sans text-xs tracking-wide">
                         {post.category}
                       </span>
                     </div>
@@ -145,10 +145,10 @@ const Blog = () => {
                     <Calendar className="w-4 h-4" />
                     {post.date}
                   </div>
-                  <h3 className="font-display text-xl md:text-2xl font-bold mb-3 group-hover:text-magenta transition-colors">
+                  <h3 className="font-display text-xl md:text-2xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">
                     {post.title}
                   </h3>
-                  <p className="text-muted-foreground line-clamp-2">{post.excerpt}</p>
+                  <p className="text-muted-foreground line-clamp-2 leading-relaxed">{post.excerpt}</p>
                 </article>
               </Link>
             ))}

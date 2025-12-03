@@ -11,16 +11,16 @@ const services = [
 
 export function ServicesMarquee() {
   return (
-    <section className="bg-secondary text-secondary-foreground py-6 overflow-hidden">
+    <section className="bg-secondary text-secondary-foreground py-5 overflow-hidden">
       <div className="marquee whitespace-nowrap">
-        <div className="inline-flex items-center gap-8">
+        <div className="inline-flex items-center gap-12">
           {[...services, ...services].map((service, index) => (
             <span
               key={index}
-              className="font-display text-lg md:text-xl uppercase tracking-wider flex items-center gap-8"
+              className="font-sans text-sm md:text-base tracking-wide flex items-center gap-12 text-secondary-foreground/70"
             >
               {service}
-              <span className="w-2 h-2 bg-magenta rounded-full" />
+              <span className="w-1.5 h-1.5 bg-primary rounded-full" />
             </span>
           ))}
         </div>

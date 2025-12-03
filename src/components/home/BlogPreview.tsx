@@ -30,26 +30,26 @@ const blogPosts = [
 
 export function BlogPreview() {
   return (
-    <section className="py-20 md:py-32 bg-background">
+    <section className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
           <div>
-            <p className="font-display text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            <p className="font-sans text-sm tracking-widest text-muted-foreground mb-4">
               From The Blog
             </p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-none">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Insights &
               <br />
-              <span className="text-magenta">perspectives</span>
+              <span className="text-primary">perspectives</span>
             </h2>
           </div>
           <Link
             to="/blog"
-            className="font-display text-sm uppercase tracking-widest flex items-center gap-2 border-b-2 border-foreground pb-1 hover:text-magenta hover:border-magenta transition-colors duration-300"
+            className="group font-sans text-sm tracking-wide flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300"
           >
             All Articles
-            <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
 
@@ -63,14 +63,14 @@ export function BlogPreview() {
             >
               <article className="h-full">
                 {/* Image */}
-                <div className="relative overflow-hidden border-2 border-foreground aspect-[4/3] mb-6">
+                <div className="relative overflow-hidden rounded-2xl aspect-[4/3] mb-6">
                   <img
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-accent text-accent-foreground px-3 py-1 font-display text-xs uppercase tracking-wider">
+                    <span className="bg-accent text-accent-foreground px-4 py-1.5 rounded-full font-sans text-xs tracking-wide">
                       {post.category}
                     </span>
                   </div>
@@ -81,10 +81,10 @@ export function BlogPreview() {
                   <Calendar className="w-4 h-4" />
                   {post.date}
                 </div>
-                <h3 className="font-display text-xl md:text-2xl font-bold mb-3 group-hover:text-magenta transition-colors duration-300">
+                <h3 className="font-display text-xl md:text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300 leading-tight">
                   {post.title}
                 </h3>
-                <p className="text-muted-foreground line-clamp-2">
+                <p className="text-muted-foreground line-clamp-2 leading-relaxed">
                   {post.excerpt}
                 </p>
               </article>
