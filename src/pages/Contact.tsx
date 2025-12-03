@@ -27,14 +27,14 @@ const Contact = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-magenta text-primary-foreground">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 md:px-8">
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold leading-none">
             Let's
             <br />
             <span className="text-accent">Talk</span>
           </h1>
-          <p className="mt-6 text-lg text-primary-foreground/80 max-w-xl">
+          <p className="mt-6 text-lg text-primary-foreground/70 max-w-xl leading-relaxed">
             Have a project in mind? We'd love to hear about it. Let's create
             something bold together.
           </p>
@@ -42,52 +42,52 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Form */}
             <div>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-8">
-                Start a <span className="text-magenta">Project</span>
+                Start a <span className="text-primary">Project</span>
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="font-display text-sm uppercase tracking-wider">
+                    <label className="font-sans text-sm text-muted-foreground">
                       Name *
                     </label>
                     <Input
                       required
                       placeholder="Your name"
-                      className="h-14 border-2 border-foreground bg-transparent focus:border-magenta"
+                      className="h-12 rounded-xl border-border bg-muted/50 focus:bg-card focus:border-primary transition-all"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="font-display text-sm uppercase tracking-wider">
+                    <label className="font-sans text-sm text-muted-foreground">
                       Email *
                     </label>
                     <Input
                       type="email"
                       required
                       placeholder="your@email.com"
-                      className="h-14 border-2 border-foreground bg-transparent focus:border-magenta"
+                      className="h-12 rounded-xl border-border bg-muted/50 focus:bg-card focus:border-primary transition-all"
                     />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="font-display text-sm uppercase tracking-wider">
+                  <label className="font-sans text-sm text-muted-foreground">
                     Company
                   </label>
                   <Input
                     placeholder="Your company"
-                    className="h-14 border-2 border-foreground bg-transparent focus:border-magenta"
+                    className="h-12 rounded-xl border-border bg-muted/50 focus:bg-card focus:border-primary transition-all"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="font-display text-sm uppercase tracking-wider">
+                  <label className="font-sans text-sm text-muted-foreground">
                     Project Type
                   </label>
-                  <select className="w-full h-14 border-2 border-foreground bg-transparent px-4 font-sans focus:border-magenta focus:outline-none">
+                  <select className="w-full h-12 rounded-xl border border-border bg-muted/50 px-4 font-sans focus:bg-card focus:border-primary focus:outline-none transition-all">
                     <option value="">Select a service</option>
                     <option value="branding">Brand Identity</option>
                     <option value="web">Web Design & Development</option>
@@ -97,13 +97,13 @@ const Contact = () => {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label className="font-display text-sm uppercase tracking-wider">
+                  <label className="font-sans text-sm text-muted-foreground">
                     Tell us about your project *
                   </label>
                   <Textarea
                     required
                     placeholder="Describe your project, goals, and timeline..."
-                    className="min-h-[160px] border-2 border-foreground bg-transparent focus:border-magenta resize-none"
+                    className="min-h-[160px] rounded-xl border-border bg-muted/50 focus:bg-card focus:border-primary resize-none transition-all"
                   />
                 </div>
                 <Button
@@ -120,49 +120,49 @@ const Contact = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="lg:pl-12">
+            <div className="lg:pl-8">
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-8">
-                Get in <span className="text-magenta">Touch</span>
+                Get in <span className="text-primary">Touch</span>
               </h2>
-              <div className="space-y-8">
-                <div className="flex gap-4">
-                  <div className="w-14 h-14 bg-accent text-accent-foreground flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6" />
+              <div className="space-y-6">
+                <div className="flex gap-4 items-start">
+                  <div className="w-12 h-12 bg-accent text-accent-foreground rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-display text-sm uppercase tracking-wider text-muted-foreground mb-1">
+                    <h3 className="font-sans text-sm text-muted-foreground mb-1">
                       Email
                     </h3>
                     <a
                       href="mailto:hello@bold.agency"
-                      className="text-lg hover:text-magenta transition-colors"
+                      className="text-lg hover:text-primary transition-colors"
                     >
                       hello@bold.agency
                     </a>
                   </div>
                 </div>
-                <div className="flex gap-4">
-                  <div className="w-14 h-14 bg-accent text-accent-foreground flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6" />
+                <div className="flex gap-4 items-start">
+                  <div className="w-12 h-12 bg-accent text-accent-foreground rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-display text-sm uppercase tracking-wider text-muted-foreground mb-1">
+                    <h3 className="font-sans text-sm text-muted-foreground mb-1">
                       Phone
                     </h3>
                     <a
                       href="tel:+1234567890"
-                      className="text-lg hover:text-magenta transition-colors"
+                      className="text-lg hover:text-primary transition-colors"
                     >
                       +1 (234) 567-890
                     </a>
                   </div>
                 </div>
-                <div className="flex gap-4">
-                  <div className="w-14 h-14 bg-accent text-accent-foreground flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6" />
+                <div className="flex gap-4 items-start">
+                  <div className="w-12 h-12 bg-accent text-accent-foreground rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-display text-sm uppercase tracking-wider text-muted-foreground mb-1">
+                    <h3 className="font-sans text-sm text-muted-foreground mb-1">
                       Office
                     </h3>
                     <p className="text-lg">
@@ -175,13 +175,13 @@ const Contact = () => {
               </div>
 
               {/* Map Placeholder */}
-              <div className="mt-12 aspect-[4/3] bg-muted border-2 border-foreground relative overflow-hidden">
+              <div className="mt-10 aspect-[4/3] rounded-2xl relative overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80"
                   alt="Office location"
                   className="w-full h-full object-cover grayscale"
                 />
-                <div className="absolute inset-0 bg-magenta/20" />
+                <div className="absolute inset-0 bg-primary/10" />
               </div>
             </div>
           </div>

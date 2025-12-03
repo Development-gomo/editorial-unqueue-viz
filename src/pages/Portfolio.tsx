@@ -80,14 +80,14 @@ const Portfolio = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-background">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold leading-none">
             Our
             <br />
-            <span className="text-magenta">Work</span>
+            <span className="text-primary">Work</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-xl">
+          <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
             A curated collection of our finest projects. Each piece represents our
             commitment to bold, innovative design.
           </p>
@@ -95,18 +95,18 @@ const Portfolio = () => {
       </section>
 
       {/* Filters */}
-      <section className="py-8 bg-background border-y border-border">
+      <section className="py-6 bg-background border-y border-border">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={cn(
-                  "font-display text-sm uppercase tracking-widest px-6 py-3 border-2 transition-all duration-300",
+                  "font-sans text-sm px-5 py-2.5 rounded-full transition-all duration-300",
                   activeCategory === category
-                    ? "bg-foreground text-background border-foreground"
-                    : "bg-transparent text-foreground border-foreground hover:bg-foreground hover:text-background"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted text-foreground hover:bg-muted/80"
                 )}
               >
                 {category}
@@ -125,13 +125,13 @@ const Portfolio = () => {
                 key={project.id}
                 to={`/case-study/${project.id}`}
                 className={cn(
-                  "group relative",
+                  "group relative rounded-2xl overflow-hidden",
                   project.size === "large" ? "md:col-span-2 lg:col-span-2" : ""
                 )}
                 onMouseEnter={() => setHoveredId(project.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                <div className="relative overflow-hidden border-2 border-foreground aspect-[4/3]">
+                <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -143,38 +143,31 @@ const Portfolio = () => {
 
                   <div
                     className={cn(
-                      "absolute inset-0 bg-magenta transition-opacity duration-500",
-                      hoveredId === project.id ? "opacity-80" : "opacity-0"
+                      "absolute inset-0 bg-gradient-to-t from-secondary via-secondary/50 to-transparent transition-opacity duration-500",
+                      hoveredId === project.id ? "opacity-90" : "opacity-60"
                     )}
                   />
 
-                  <div
-                    className={cn(
-                      "absolute inset-0 p-6 flex flex-col justify-end transition-all duration-500",
-                      hoveredId === project.id ? "opacity-100" : "opacity-0"
-                    )}
-                  >
-                    <p className="font-display text-sm uppercase tracking-widest text-cloud-white/80 mb-2">
+                  <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                    <p
+                      className={cn(
+                        "font-sans text-xs tracking-widest text-cloud-white/70 mb-2 transition-all duration-300",
+                        hoveredId === project.id ? "translate-y-0 opacity-100" : "translate-y-2 opacity-70"
+                      )}
+                    >
                       {project.category}
                     </p>
-                    <h3 className="font-display text-3xl md:text-4xl font-bold text-cloud-white flex items-center gap-3">
+                    <h3 className="font-display text-2xl md:text-3xl font-bold text-cloud-white flex items-center gap-3">
                       {project.title}
-                      <ArrowUpRight className="w-8 h-8" />
+                      <ArrowUpRight
+                        className={cn(
+                          "w-6 h-6 transition-all duration-300",
+                          hoveredId === project.id
+                            ? "opacity-100 translate-x-0"
+                            : "opacity-0 -translate-x-2"
+                        )}
+                      />
                     </h3>
-                  </div>
-
-                  <div
-                    className={cn(
-                      "absolute bottom-0 left-0 right-0 bg-foreground text-background p-4 flex justify-between items-center transition-transform duration-500",
-                      hoveredId === project.id ? "translate-y-full" : "translate-y-0"
-                    )}
-                  >
-                    <span className="font-display text-sm uppercase tracking-wider">
-                      {project.title}
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      {project.category}
-                    </span>
                   </div>
                 </div>
               </Link>

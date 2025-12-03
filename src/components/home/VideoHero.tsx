@@ -34,7 +34,7 @@ export function VideoHero() {
         />
       </video>
 
-      {/* Orange Gradient Overlay */}
+      {/* Modern Gradient Overlay */}
       <div className="absolute inset-0 video-overlay" />
 
       {/* Content */}
@@ -42,12 +42,12 @@ export function VideoHero() {
         <div className="max-w-5xl">
           {/* Tagline */}
           <div
-            className={`overflow-hidden mb-6 transition-opacity duration-1000 ${
+            className={`overflow-hidden mb-8 transition-opacity duration-1000 ${
               isLoaded ? "opacity-100" : "opacity-0"
             }`}
           >
             <p
-              className="font-display text-sm md:text-base uppercase tracking-[0.3em] text-cloud-white/80 animate-reveal-up"
+              className="font-sans text-sm md:text-base tracking-widest text-cloud-white/70 animate-reveal-up"
               style={{ animationDelay: "0.2s" }}
             >
               Creative Agency • Digital Rebels • Brand Architects
@@ -55,7 +55,7 @@ export function VideoHero() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold leading-[0.9] tracking-tighter text-cloud-white">
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold leading-[0.95] tracking-tight text-cloud-white">
             <span
               className={`block overflow-hidden ${isLoaded ? "opacity-100" : "opacity-0"}`}
             >
@@ -90,10 +90,9 @@ export function VideoHero() {
 
           {/* CTA Buttons */}
           <div
-            className={`flex flex-col sm:flex-row gap-4 mt-10 md:mt-12 transition-opacity duration-1000 ${
+            className={`flex flex-col sm:flex-row gap-4 mt-12 md:mt-14 transition-opacity duration-1000 ${
               isLoaded ? "opacity-100" : "opacity-0"
             }`}
-            style={{ animationDelay: "1s" }}
           >
             <Button variant="hero" size="lg" asChild className="animate-reveal-up" style={{ animationDelay: "1s" }}>
               <Link to="/portfolio">
@@ -102,10 +101,10 @@ export function VideoHero() {
               </Link>
             </Button>
             <Button
-              variant="outline"
+              variant="glass"
               size="lg"
               asChild
-              className="border-cloud-white text-cloud-white hover:bg-cloud-white hover:text-secondary animate-reveal-up"
+              className="text-cloud-white border-cloud-white/20 hover:bg-cloud-white/10 animate-reveal-up"
               style={{ animationDelay: "1.1s" }}
             >
               <Link to="/contact">Start a Project</Link>
@@ -115,16 +114,17 @@ export function VideoHero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-        <div className="flex flex-col items-center gap-2 text-cloud-white/70 animate-bounce-subtle">
-          <span className="text-xs uppercase tracking-widest font-display">Scroll</span>
-          <ArrowDown className="w-5 h-5" />
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
+        <div className="flex flex-col items-center gap-3 text-cloud-white/60 animate-bounce-subtle">
+          <span className="text-xs tracking-widest font-sans">Scroll</span>
+          <ArrowDown className="w-4 h-4" />
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-1/4 right-8 md:right-16 z-10 hidden lg:block">
-        <div className="w-24 h-24 border-2 border-accent rotate-45 animate-pulse-glow" />
+      {/* Modern Decorative Element */}
+      <div className="absolute top-1/3 right-12 md:right-20 z-10 hidden lg:block">
+        <div className="w-20 h-20 rounded-full border border-accent/30 animate-pulse-glow" />
+        <div className="w-12 h-12 rounded-full border border-cloud-white/20 absolute -bottom-8 -left-8 float" />
       </div>
     </section>
   );

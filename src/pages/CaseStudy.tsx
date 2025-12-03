@@ -60,14 +60,14 @@ const CaseStudy = () => {
         <div className="container mx-auto px-4 md:px-8">
           <Link
             to="/portfolio"
-            className="inline-flex items-center gap-2 font-display text-sm uppercase tracking-widest text-muted-foreground hover:text-magenta transition-colors mb-8"
+            className="inline-flex items-center gap-2 font-sans text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Work
           </Link>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-12">
             <div>
-              <p className="font-display text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+              <p className="font-sans text-sm tracking-widest text-muted-foreground mb-4">
                 {study.category}
               </p>
               <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold leading-none">
@@ -76,13 +76,13 @@ const CaseStudy = () => {
             </div>
             <div className="flex flex-wrap gap-8 lg:justify-end">
               <div>
-                <p className="font-display text-sm uppercase tracking-wider text-muted-foreground">
+                <p className="font-sans text-sm text-muted-foreground">
                   Client
                 </p>
                 <p className="text-lg font-bold">{study.client}</p>
               </div>
               <div>
-                <p className="font-display text-sm uppercase tracking-wider text-muted-foreground">
+                <p className="font-sans text-sm text-muted-foreground">
                   Year
                 </p>
                 <p className="text-lg font-bold">{study.year}</p>
@@ -103,26 +103,26 @@ const CaseStudy = () => {
       </section>
 
       {/* Content */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <div className="max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl text-muted-foreground mb-16">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-16 leading-relaxed">
               {study.description}
             </p>
 
             <div className="space-y-12">
               <div>
                 <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">
-                  The <span className="text-magenta">Challenge</span>
+                  The <span className="text-primary">Challenge</span>
                 </h2>
-                <p className="text-lg text-muted-foreground">{study.challenge}</p>
+                <p className="text-lg text-muted-foreground leading-relaxed">{study.challenge}</p>
               </div>
 
               <div>
                 <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">
-                  The <span className="text-magenta">Solution</span>
+                  The <span className="text-primary">Solution</span>
                 </h2>
-                <p className="text-lg text-muted-foreground">{study.solution}</p>
+                <p className="text-lg text-muted-foreground leading-relaxed">{study.solution}</p>
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@ const CaseStudy = () => {
             {study.images.map((image, index) => (
               <div
                 key={index}
-                className="aspect-[4/3] border-2 border-foreground overflow-hidden"
+                className="aspect-[4/3] rounded-2xl overflow-hidden"
               >
                 <img
                   src={image}
@@ -150,9 +150,9 @@ const CaseStudy = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-32 bg-secondary text-secondary-foreground">
+      <section className="py-24 md:py-32 bg-secondary text-secondary-foreground">
         <div className="container mx-auto px-4 md:px-8 text-center">
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-8">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-10">
             Want to create something like this?
           </h2>
           <Button variant="hero" size="xl" asChild>
