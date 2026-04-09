@@ -1,0 +1,22 @@
+{
+  "brand": {
+    "description": "We are a creative agency that believes in the power of bold ideas. We create digital experiences that challenge conventions and inspire action."
+  },
+  "navigation": [
+    { "name": "Work", "href": "/portfolio" },
+    { "name": "About", "href": "/about" },
+    { "name": "Team", "href": "/team" },
+    { "name": "Blog", "href": "/blog" },
+    { "name": "Contact", "href": "/contact" }
+  ],
+  "social": [
+    { "name": "Instagram", "icon": "Instagram", "href": "#" },
+    { "name": "Twitter", "icon": "Twitter", "href": "#" },
+    { "name": "LinkedIn", "icon": "Linkedin", "href": "#" },
+    { "name": "Dribbble", "icon": "Dribbble", "href": "#" }
+  ],
+  "legal": [
+    { "name": "Privacy Policy", "href": "#" },
+    { "name": "Terms of Service", "href": "#" }
+  ]
+}

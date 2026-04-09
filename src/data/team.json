@@ -1,0 +1,74 @@
+{
+  "preview": [
+    {
+      "name": "Alex Chen",
+      "role": "Creative Director",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
+    },
+    {
+      "name": "Sarah Miller",
+      "role": "Design Lead",
+      "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80"
+    },
+    {
+      "name": "Marcus Johnson",
+      "role": "Tech Director",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80"
+    },
+    {
+      "name": "Emma Wilson",
+      "role": "Strategy Lead",
+      "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80"
+    }
+  ],
+  "all": [
+    {
+      "name": "Alex Chen",
+      "role": "Founder & Creative Director",
+      "bio": "15+ years of experience leading global creative teams.",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
+    },
+    {
+      "name": "Sarah Miller",
+      "role": "Design Lead",
+      "bio": "Award-winning designer with a passion for bold visuals.",
+      "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80"
+    },
+    {
+      "name": "Marcus Johnson",
+      "role": "Tech Director",
+      "bio": "Building cutting-edge digital experiences since 2010.",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80"
+    },
+    {
+      "name": "Emma Wilson",
+      "role": "Strategy Lead",
+      "bio": "Bridging creativity and business with strategic insight.",
+      "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=80"
+    },
+    {
+      "name": "David Park",
+      "role": "Motion Director",
+      "bio": "Bringing brands to life through animation and motion.",
+      "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80"
+    },
+    {
+      "name": "Lisa Wang",
+      "role": "UX Lead",
+      "bio": "Creating human-centered experiences that delight.",
+      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80"
+    },
+    {
+      "name": "James Rodriguez",
+      "role": "Senior Developer",
+      "bio": "Turning complex problems into elegant solutions.",
+      "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80"
+    },
+    {
+      "name": "Mia Thompson",
+      "role": "Brand Strategist",
+      "bio": "Crafting brand narratives that resonate and inspire.",
+      "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&q=80"
+    }
+  ]
+}

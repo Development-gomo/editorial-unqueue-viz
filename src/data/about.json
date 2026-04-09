@@ -1,0 +1,38 @@
+{
+  "stats": [
+    { "number": "150+", "label": "Projects Delivered" },
+    { "number": "12", "label": "Years Experience" },
+    { "number": "40+", "label": "Team Members" },
+    { "number": "98%", "label": "Client Satisfaction" }
+  ],
+  "values": [
+    {
+      "number": "01",
+      "title": "Bold Creativity",
+      "description": "We don't follow trends, we set them. Every project is an opportunity to push boundaries."
+    },
+    {
+      "number": "02",
+      "title": "Strategic Thinking",
+      "description": "Beautiful design backed by data-driven insights and strategic planning."
+    },
+    {
+      "number": "03",
+      "title": "Collaborative Spirit",
+      "description": "We work with you, not just for you. Your success is our success."
+    },
+    {
+      "number": "04",
+      "title": "Relentless Excellence",
+      "description": "We obsess over every detail until it's perfect. Good enough isn't in our vocabulary."
+    }
+  ],
+  "story": {
+    "paragraphs": [
+      "Founded in 2012, BOLD started as a two-person studio with a simple belief: design should be fearless. What began as a passion project in a tiny apartment has grown into an internationally recognized creative agency.",
+      "Today, we're a team of 40+ designers, developers, and strategists united by our commitment to pushing creative boundaries. We've worked with Fortune 500 companies and emerging startups alike, always bringing the same level of dedication and innovation.",
+      "Our work has been recognized by Awwwards, Communication Arts, and the D&AD, but our greatest achievement is the lasting impact we create for our clients."
+    ]
+  },
+  "heroImage": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80"
+}
