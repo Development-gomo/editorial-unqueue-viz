@@ -2,14 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-  { name: "Work", href: "/portfolio" },
-  { name: "About", href: "/about" },
-  { name: "Team", href: "/team" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
-];
+import navData from "@/data/navigation.json";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,25 +26,23 @@ export function Navigation() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          scrolled
-            ? "glass py-3"
-            : "bg-transparent py-5"
+          scrolled ? "glass py-3" : "bg-transparent py-5"
         )}
       >
         <nav className="container mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo */}
             <Link
               to="/"
               className="font-display text-2xl md:text-3xl font-extrabold tracking-tighter z-50 relative group"
             >
-              <span className="text-foreground transition-colors group-hover:text-primary">BOLD</span>
-              <span className="text-primary">*</span>
+              <span className="text-foreground transition-colors group-hover:text-primary">
+                {navData.logo.text}
+              </span>
+              <span className="text-primary">{navData.logo.accent}</span>
             </Link>
 
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => (
+              {navData.links.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}
@@ -66,15 +57,14 @@ export function Navigation() {
                 </Link>
               ))}
               <Link
-                to="/contact"
+                to={navData.cta.href}
                 className="ml-4 bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-display text-sm hover:shadow-glow hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2"
               >
-                Let's Talk
+                {navData.cta.text}
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
 
-            {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden z-50 relative w-12 h-12 flex items-center justify-center rounded-full hover:bg-muted transition-colors"
@@ -90,7 +80,6 @@ export function Navigation() {
         </nav>
       </header>
 
-      {/* Mobile Menu */}
       <div
         className={cn(
           "fixed inset-0 z-40 bg-background/98 backdrop-blur-xl transition-all duration-500 lg:hidden",
@@ -98,7 +87,7 @@ export function Navigation() {
         )}
       >
         <div className="flex flex-col justify-center items-center h-full gap-6">
-          {navLinks.map((link, index) => (
+          {navData.links.map((link, index) => (
             <Link
               key={link.name}
               to={link.href}
@@ -114,16 +103,16 @@ export function Navigation() {
             </Link>
           ))}
           <Link
-            to="/contact"
+            to={navData.cta.href}
             className={cn(
               "mt-6 bg-primary text-primary-foreground px-8 py-4 rounded-full font-display text-lg hover:shadow-glow transition-all duration-300",
               isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             )}
             style={{
-              transitionDelay: isOpen ? `${navLinks.length * 75}ms` : "0ms",
+              transitionDelay: isOpen ? `${navData.links.length * 75}ms` : "0ms",
             }}
           >
-            Let's Talk
+            {navData.cta.text}
           </Link>
         </div>
       </div>

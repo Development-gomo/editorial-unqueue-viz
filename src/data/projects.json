@@ -1,0 +1,87 @@
+{
+  "featured": [
+    {
+      "id": 1,
+      "title": "Neon Dreams",
+      "category": "Brand Identity",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80"
+    },
+    {
+      "id": 2,
+      "title": "Urban Flow",
+      "category": "Web Design",
+      "image": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80"
+    },
+    {
+      "id": 3,
+      "title": "Minimal Wave",
+      "category": "Digital Campaign",
+      "image": "https://images.unsplash.com/photo-1579547945413-497e1b99dac0?w=800&q=80"
+    },
+    {
+      "id": 4,
+      "title": "Future Tech",
+      "category": "App Design",
+      "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80"
+    }
+  ],
+  "all": [
+    {
+      "id": 1,
+      "title": "Neon Dreams",
+      "category": "Branding",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
+      "size": "large"
+    },
+    {
+      "id": 2,
+      "title": "Urban Flow",
+      "category": "Web Design",
+      "image": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80",
+      "size": "small"
+    },
+    {
+      "id": 3,
+      "title": "Minimal Wave",
+      "category": "Digital",
+      "image": "https://images.unsplash.com/photo-1579547945413-497e1b99dac0?w=800&q=80",
+      "size": "small"
+    },
+    {
+      "id": 4,
+      "title": "Future Tech",
+      "category": "Web Design",
+      "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
+      "size": "large"
+    },
+    {
+      "id": 5,
+      "title": "Pulse",
+      "category": "Motion",
+      "image": "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=800&q=80",
+      "size": "small"
+    },
+    {
+      "id": 6,
+      "title": "Echo",
+      "category": "Branding",
+      "image": "https://images.unsplash.com/photo-1635405074683-96d6921a2a68?w=800&q=80",
+      "size": "large"
+    },
+    {
+      "id": 7,
+      "title": "Vertex",
+      "category": "Digital",
+      "image": "https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?w=800&q=80",
+      "size": "small"
+    },
+    {
+      "id": 8,
+      "title": "Nova",
+      "category": "Motion",
+      "image": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&q=80",
+      "size": "small"
+    }
+  ],
+  "categories": ["All", "Branding", "Web Design", "Digital", "Motion"]
+}

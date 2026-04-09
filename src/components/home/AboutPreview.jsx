@@ -1,25 +1,17 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const stats = [
-  { number: "150+", label: "Projects Delivered" },
-  { number: "12", label: "Years Experience" },
-  { number: "40+", label: "Team Members" },
-  { number: "98%", label: "Client Satisfaction" },
-];
+import aboutData from "@/data/about.json";
 
 export function AboutPreview() {
   return (
     <section className="py-24 md:py-32 bg-muted relative overflow-hidden">
-      {/* Background Text */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 font-display text-[15vw] font-extrabold text-foreground/[0.02] whitespace-nowrap pointer-events-none select-none">
         BOLD CREATIVE
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
           <div>
             <p className="font-sans text-sm tracking-widest text-muted-foreground mb-4">
               About Us
@@ -42,9 +34,8 @@ export function AboutPreview() {
             </Button>
           </div>
 
-          {/* Right - Stats */}
           <div className="grid grid-cols-2 gap-4 md:gap-6">
-            {stats.map((stat, index) => (
+            {aboutData.stats.map((stat, index) => (
               <div
                 key={stat.label}
                 className="bg-card rounded-2xl p-6 md:p-8 shadow-elegant hover-lift"

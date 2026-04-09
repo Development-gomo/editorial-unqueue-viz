@@ -2,41 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const projects = [
-  {
-    id: 1,
-    title: "Neon Dreams",
-    category: "Brand Identity",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
-  },
-  {
-    id: 2,
-    title: "Urban Flow",
-    category: "Web Design",
-    image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80",
-  },
-  {
-    id: 3,
-    title: "Minimal Wave",
-    category: "Digital Campaign",
-    image: "https://images.unsplash.com/photo-1579547945413-497e1b99dac0?w=800&q=80",
-  },
-  {
-    id: 4,
-    title: "Future Tech",
-    category: "App Design",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
-  },
-];
+import projectsData from "@/data/projects.json";
 
 export function FeaturedWork() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [hoveredId, setHoveredId] = useState(null);
+  const projects = projectsData.featured;
 
   return (
     <section className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-8">
-        {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
           <div>
             <p className="font-sans text-sm tracking-widest text-muted-foreground mb-4">
@@ -57,7 +31,6 @@ export function FeaturedWork() {
           </Link>
         </div>
 
-        {/* Projects Grid - Modern Masonry Style */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <Link
@@ -76,7 +49,6 @@ export function FeaturedWork() {
                   index === 0 || index === 3 ? "md:min-h-[540px]" : ""
                 )}
               >
-                {/* Image */}
                 <img
                   src={project.image}
                   alt={project.title}
@@ -85,16 +57,12 @@ export function FeaturedWork() {
                     hoveredId === project.id ? "scale-110" : "scale-100"
                   )}
                 />
-
-                {/* Gradient Overlay */}
                 <div
                   className={cn(
                     "absolute inset-0 bg-gradient-to-t from-secondary via-secondary/50 to-transparent transition-opacity duration-500",
                     hoveredId === project.id ? "opacity-90" : "opacity-60"
                   )}
                 />
-
-                {/* Content */}
                 <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
                   <div className="transform transition-all duration-500">
                     <p

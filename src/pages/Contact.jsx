@@ -6,27 +6,24 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import { toast } from "sonner";
+import contactData from "@/data/contact.json";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    
     toast.success("Message sent successfully! We'll get back to you soon.");
     setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+    e.target.reset();
   };
 
   return (
     <main className="min-w-[320px]">
       <Navigation />
 
-      {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 md:px-8">
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold leading-none">
@@ -41,11 +38,9 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Form & Info */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Form */}
             <div>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-8">
                 Start a <span className="text-primary">Project</span>
@@ -53,9 +48,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="font-sans text-sm text-muted-foreground">
-                      Name *
-                    </label>
+                    <label className="font-sans text-sm text-muted-foreground">Name *</label>
                     <Input
                       required
                       placeholder="Your name"
@@ -63,9 +56,7 @@ const Contact = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="font-sans text-sm text-muted-foreground">
-                      Email *
-                    </label>
+                    <label className="font-sans text-sm text-muted-foreground">Email *</label>
                     <Input
                       type="email"
                       required
@@ -75,25 +66,18 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="font-sans text-sm text-muted-foreground">
-                    Company
-                  </label>
+                  <label className="font-sans text-sm text-muted-foreground">Company</label>
                   <Input
                     placeholder="Your company"
                     className="h-12 rounded-xl border-border bg-muted/50 focus:bg-card focus:border-primary transition-all"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="font-sans text-sm text-muted-foreground">
-                    Project Type
-                  </label>
+                  <label className="font-sans text-sm text-muted-foreground">Project Type</label>
                   <select className="w-full h-12 rounded-xl border border-border bg-muted/50 px-4 font-sans focus:bg-card focus:border-primary focus:outline-none transition-all">
-                    <option value="">Select a service</option>
-                    <option value="branding">Brand Identity</option>
-                    <option value="web">Web Design & Development</option>
-                    <option value="digital">Digital Campaign</option>
-                    <option value="motion">Motion & Animation</option>
-                    <option value="other">Other</option>
+                    {contactData.projectTypes.map((type) => (
+                      <option key={type.value} value={type.value}>{type.label}</option>
+                    ))}
                   </select>
                 </div>
                 <div className="space-y-2">
@@ -119,7 +103,6 @@ const Contact = () => {
               </form>
             </div>
 
-            {/* Contact Info */}
             <div className="lg:pl-8">
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-8">
                 Get in <span className="text-primary">Touch</span>
@@ -130,14 +113,9 @@ const Contact = () => {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-sans text-sm text-muted-foreground mb-1">
-                      Email
-                    </h3>
-                    <a
-                      href="mailto:hello@bold.agency"
-                      className="text-lg hover:text-primary transition-colors"
-                    >
-                      hello@bold.agency
+                    <h3 className="font-sans text-sm text-muted-foreground mb-1">Email</h3>
+                    <a href={`mailto:${contactData.info.email}`} className="text-lg hover:text-primary transition-colors">
+                      {contactData.info.email}
                     </a>
                   </div>
                 </div>
@@ -146,14 +124,9 @@ const Contact = () => {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-sans text-sm text-muted-foreground mb-1">
-                      Phone
-                    </h3>
-                    <a
-                      href="tel:+1234567890"
-                      className="text-lg hover:text-primary transition-colors"
-                    >
-                      +1 (234) 567-890
+                    <h3 className="font-sans text-sm text-muted-foreground mb-1">Phone</h3>
+                    <a href={`tel:${contactData.info.phone}`} className="text-lg hover:text-primary transition-colors">
+                      {contactData.info.phone}
                     </a>
                   </div>
                 </div>
@@ -162,22 +135,19 @@ const Contact = () => {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-sans text-sm text-muted-foreground mb-1">
-                      Office
-                    </h3>
+                    <h3 className="font-sans text-sm text-muted-foreground mb-1">Office</h3>
                     <p className="text-lg">
-                      123 Creative Street
+                      {contactData.info.address.line1}
                       <br />
-                      New York, NY 10001
+                      {contactData.info.address.line2}
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Map Placeholder */}
               <div className="mt-10 aspect-[4/3] rounded-2xl relative overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80"
+                  src={contactData.info.mapImage}
                   alt="Office location"
                   className="w-full h-full object-cover grayscale"
                 />

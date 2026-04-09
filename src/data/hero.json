@@ -1,0 +1,11 @@
+{
+  "tagline": "Creative Agency • Digital Rebels • Brand Architects",
+  "headline": ["We Create", "Bold Digital", "Experiences"],
+  "accentLine": 1,
+  "videoUrl": "https://jetonbucket.fra1.cdn.digitaloceanspaces.com/jeton/2024-08-08T10-52-41.402Z-jeton-homepage-hd2.mp4#t=0.01",
+  "cta": [
+    { "text": "View Our Work", "href": "/portfolio", "variant": "hero" },
+    { "text": "Start a Project", "href": "/contact", "variant": "glass" }
+  ],
+  "scrollText": "Scroll"
+}

@@ -3,36 +3,13 @@ import { Footer } from "@/components/layout/Footer";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
-const values = [
-  {
-    number: "01",
-    title: "Bold Creativity",
-    description: "We don't follow trends, we set them. Every project is an opportunity to push boundaries.",
-  },
-  {
-    number: "02",
-    title: "Strategic Thinking",
-    description: "Beautiful design backed by data-driven insights and strategic planning.",
-  },
-  {
-    number: "03",
-    title: "Collaborative Spirit",
-    description: "We work with you, not just for you. Your success is our success.",
-  },
-  {
-    number: "04",
-    title: "Relentless Excellence",
-    description: "We obsess over every detail until it's perfect. Good enough isn't in our vocabulary.",
-  },
-];
+import aboutData from "@/data/about.json";
 
 const About = () => {
   return (
     <main className="min-w-[320px]">
       <Navigation />
 
-      {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-secondary text-secondary-foreground">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
@@ -54,17 +31,15 @@ const About = () => {
         </div>
       </section>
 
-      {/* Image Section */}
       <section className="relative h-[50vh] md:h-[70vh]">
         <img
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80"
+          src={aboutData.heroImage}
           alt="Our team at work"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
       </section>
 
-      {/* Story */}
       <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -78,27 +53,14 @@ const About = () => {
               </h2>
             </div>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-              <p>
-                Founded in 2012, BOLD started as a two-person studio with a simple belief:
-                design should be fearless. What began as a passion project in a tiny apartment
-                has grown into an internationally recognized creative agency.
-              </p>
-              <p>
-                Today, we're a team of 40+ designers, developers, and strategists united by
-                our commitment to pushing creative boundaries. We've worked with Fortune 500
-                companies and emerging startups alike, always bringing the same level of
-                dedication and innovation.
-              </p>
-              <p>
-                Our work has been recognized by Awwwards, Communication Arts, and the D&AD,
-                but our greatest achievement is the lasting impact we create for our clients.
-              </p>
+              {aboutData.story.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
       <section className="py-24 md:py-32 bg-muted">
         <div className="container mx-auto px-4 md:px-8">
           <div className="mb-16">
@@ -113,7 +75,7 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {values.map((value) => (
+            {aboutData.values.map((value) => (
               <div
                 key={value.number}
                 className="bg-card rounded-2xl p-8 md:p-10 shadow-elegant hover-lift"
@@ -133,7 +95,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-24 md:py-32 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-10">

@@ -2,37 +2,15 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Instagram, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-
-const teamMembers = [
-  {
-    name: "Alex Chen",
-    role: "Creative Director",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
-  },
-  {
-    name: "Sarah Miller",
-    role: "Design Lead",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
-  },
-  {
-    name: "Marcus Johnson",
-    role: "Tech Director",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
-  },
-  {
-    name: "Emma Wilson",
-    role: "Strategy Lead",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
-  },
-];
+import teamData from "@/data/team.json";
 
 export function TeamPreview() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const teamMembers = teamData.preview;
 
   return (
     <section className="py-24 md:py-32 bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 md:px-8">
-        {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
           <div>
             <p className="font-sans text-sm tracking-widest text-secondary-foreground/50 mb-4">
@@ -53,7 +31,6 @@ export function TeamPreview() {
           </Link>
         </div>
 
-        {/* Team Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {teamMembers.map((member, index) => (
             <div
@@ -71,16 +48,12 @@ export function TeamPreview() {
                     hoveredIndex === index ? "scale-110 grayscale-0" : "scale-100 grayscale"
                   )}
                 />
-
-                {/* Overlay */}
                 <div
                   className={cn(
                     "absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent transition-opacity duration-500",
                     hoveredIndex === index ? "opacity-90" : "opacity-0"
                   )}
                 />
-
-                {/* Social Icons */}
                 <div
                   className={cn(
                     "absolute bottom-6 left-6 right-6 flex gap-3 transition-all duration-500",
@@ -103,13 +76,9 @@ export function TeamPreview() {
                   </a>
                 </div>
               </div>
-
-              {/* Info */}
               <div className="mt-5">
                 <h3 className="font-display text-xl font-bold">{member.name}</h3>
-                <p className="text-sm text-secondary-foreground/50">
-                  {member.role}
-                </p>
+                <p className="text-sm text-secondary-foreground/50">{member.role}</p>
               </div>
             </div>
           ))}

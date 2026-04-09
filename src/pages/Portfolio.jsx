@@ -4,82 +4,21 @@ import { ArrowUpRight } from "lucide-react";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
-
-const categories = ["All", "Branding", "Web Design", "Digital", "Motion"];
-
-const projects = [
-  {
-    id: 1,
-    title: "Neon Dreams",
-    category: "Branding",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
-    size: "large",
-  },
-  {
-    id: 2,
-    title: "Urban Flow",
-    category: "Web Design",
-    image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80",
-    size: "small",
-  },
-  {
-    id: 3,
-    title: "Minimal Wave",
-    category: "Digital",
-    image: "https://images.unsplash.com/photo-1579547945413-497e1b99dac0?w=800&q=80",
-    size: "small",
-  },
-  {
-    id: 4,
-    title: "Future Tech",
-    category: "Web Design",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
-    size: "large",
-  },
-  {
-    id: 5,
-    title: "Pulse",
-    category: "Motion",
-    image: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=800&q=80",
-    size: "small",
-  },
-  {
-    id: 6,
-    title: "Echo",
-    category: "Branding",
-    image: "https://images.unsplash.com/photo-1635405074683-96d6921a2a68?w=800&q=80",
-    size: "large",
-  },
-  {
-    id: 7,
-    title: "Vertex",
-    category: "Digital",
-    image: "https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?w=800&q=80",
-    size: "small",
-  },
-  {
-    id: 8,
-    title: "Nova",
-    category: "Motion",
-    image: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&q=80",
-    size: "small",
-  },
-];
+import projectsData from "@/data/projects.json";
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [hoveredId, setHoveredId] = useState(null);
 
   const filteredProjects =
     activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      ? projectsData.all
+      : projectsData.all.filter((p) => p.category === activeCategory);
 
   return (
     <main className="min-w-[320px]">
       <Navigation />
 
-      {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold leading-none">
@@ -94,11 +33,10 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Filters */}
       <section className="py-6 bg-background border-y border-border">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-wrap gap-3">
-            {categories.map((category) => (
+            {projectsData.categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
@@ -116,7 +54,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Projects Grid */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -140,14 +77,12 @@ const Portfolio = () => {
                       hoveredId === project.id ? "scale-110" : "scale-100"
                     )}
                   />
-
                   <div
                     className={cn(
                       "absolute inset-0 bg-gradient-to-t from-secondary via-secondary/50 to-transparent transition-opacity duration-500",
                       hoveredId === project.id ? "opacity-90" : "opacity-60"
                     )}
                   />
-
                   <div className="absolute inset-0 p-6 flex flex-col justify-end">
                     <p
                       className={cn(
