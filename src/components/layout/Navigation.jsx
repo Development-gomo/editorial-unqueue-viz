@@ -92,7 +92,7 @@ export function Navigation() {
               key={link.name}
               to={link.href}
               className={cn(
-                "font-display text-4xl md:text-5xl font-bold text-foreground hover:text-primary transition-all duration-300",
+                "font-display text-4xl md:text-5xl font-bold text-secondary-foreground hover:text-primary transition-all duration-300",
                 isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               )}
               style={{
