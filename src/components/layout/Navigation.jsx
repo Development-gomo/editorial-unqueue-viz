@@ -35,7 +35,7 @@ export function Navigation() {
               to="/"
               className="font-display text-2xl md:text-3xl font-extrabold tracking-tighter z-50 relative group"
             >
-              <span className="text-foreground transition-colors group-hover:text-primary">
+              <span className="text-secondary-foreground transition-colors group-hover:text-primary">
                 {navData.logo.text}
               </span>
               <span className="text-primary">{navData.logo.accent}</span>
@@ -50,7 +50,7 @@ export function Navigation() {
                     "font-display text-sm px-5 py-2.5 rounded-full transition-all duration-300",
                     location.pathname === link.href
                       ? "bg-primary/10 text-primary"
-                      : "text-foreground hover:bg-muted"
+                      : "text-secondary-foreground hover:bg-muted"
                   )}
                 >
                   {link.name}
@@ -71,9 +71,9 @@ export function Navigation() {
               aria-label="Toggle menu"
             >
               {isOpen ? (
-                <X className="w-5 h-5 text-foreground" />
+                <X className="w-5 h-5 text-secondary-foreground" />
               ) : (
-                <Menu className="w-5 h-5 text-foreground" />
+                <Menu className="w-5 h-5 text-secondary-foreground" />
               )}
             </button>
           </div>
@@ -92,7 +92,7 @@ export function Navigation() {
               key={link.name}
               to={link.href}
               className={cn(
-                "font-display text-4xl md:text-5xl font-bold text-foreground hover:text-primary transition-all duration-300",
+                "font-display text-4xl md:text-5xl font-bold text-secondary-foreground hover:text-primary transition-all duration-300",
                 isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               )}
               style={{
