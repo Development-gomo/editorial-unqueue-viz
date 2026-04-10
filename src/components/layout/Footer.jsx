@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Instagram, Twitter, Linkedin, Dribbble } from "lucide-react";
 import footerData from "@/data/footer.json";
+import navData from "@/data/navigation.json";
 
 const iconMap = { Instagram, Twitter, Linkedin, Dribbble };
 
