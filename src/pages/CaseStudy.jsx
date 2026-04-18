@@ -1,8 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import { CaseStudyContent, ImageGallery } from "@/components/sections/CaseStudyContent";
+import { CTASection } from "@/components/sections/CTASection";
 import caseStudies from "@/data/caseStudies.json";
 
 const CaseStudy = () => {
@@ -45,68 +46,25 @@ const CaseStudy = () => {
         </div>
 
         <div className="w-full h-[50vh] md:h-[70vh] relative">
-          <img
-            src={study.heroImage}
-            alt={study.title}
-            className="w-full h-full object-cover"
-          />
+          <img src={study.heroImage} alt={study.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl text-muted-foreground mb-16 leading-relaxed">
-              {study.description}
-            </p>
-            <div className="space-y-12">
-              <div>
-                <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">
-                  The <span className="text-primary">Challenge</span>
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">{study.challenge}</p>
-              </div>
-              <div>
-                <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">
-                  The <span className="text-primary">Solution</span>
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">{study.solution}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CaseStudyContent
+        description={study.description}
+        challenge={study.challenge}
+        solution={study.solution}
+      />
 
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {study.images.map((image, index) => (
-              <div key={index} className="aspect-[4/3] rounded-2xl overflow-hidden">
-                <img
-                  src={image}
-                  alt={`${study.title} - Image ${index + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ImageGallery images={study.images} title={study.title} />
 
-      <section className="py-24 md:py-32 bg-secondary text-secondary-foreground">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-10">
-            Want to create something like this?
-          </h2>
-          <Button variant="hero" size="xl" asChild>
-            <Link to="/contact">
-              Start a Project
-              <ArrowUpRight className="w-6 h-6" />
-            </Link>
-          </Button>
-        </div>
-      </section>
+      <CTASection
+        title="Want to create something like this?"
+        ctaText="Start a Project"
+        ctaHref="/contact"
+        variant="secondary"
+      />
 
       <Footer />
     </main>
