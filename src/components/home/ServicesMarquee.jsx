@@ -1,7 +1,8 @@
-import servicesData from "@/data/services.json";
+import servicesData from "@/data/services.json"; // kept for type reference only
+import { useWpData } from "@/hooks/useWpData";
 
 export function ServicesMarquee() {
-  const items = servicesData.items;
+  const { items = [] } = useWpData("services") || {};
 
   return (
     <section className="bg-secondary text-secondary-foreground py-5 overflow-hidden">

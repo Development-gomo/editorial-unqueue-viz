@@ -1,9 +1,10 @@
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { BlogCard } from "@/components/cards/BlogCard";
-import blogData from "@/data/blog.json";
+import { useWpData } from "@/hooks/useWpData";
 
 export function BlogPreview() {
-  const blogPosts = blogData.preview;
+  const blogData = useWpData("blog");
+  const blogPosts = blogData?.preview ?? [];
 
   return (
     <section className="py-24 md:py-32 bg-background">

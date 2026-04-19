@@ -5,15 +5,18 @@ import { PageHeader } from "@/components/sections/PageHeader";
 import { CategoryFilter } from "@/components/sections/CategoryFilter";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import { cn } from "@/lib/utils";
-import projectsData from "@/data/projects.json";
+import { useWpData } from "@/hooks/useWpData";
 
 const Portfolio = () => {
+  const projectsData = useWpData("projects");
+  const allProjects = projectsData?.all ?? [];
+  const categories = projectsData?.categories ?? ["All"];
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredProjects =
     activeCategory === "All"
-      ? projectsData.all
-      : projectsData.all.filter((p) => p.category === activeCategory);
+      ? allProjects
+      : allProjects.filter((p) => p.category === activeCategory);
 
   return (
     <main className="min-w-[320px]">
@@ -26,7 +29,7 @@ const Portfolio = () => {
       />
 
       <CategoryFilter
-        categories={projectsData.categories}
+        categories={categories}
         active={activeCategory}
         onChange={setActiveCategory}
       />

@@ -3,10 +3,11 @@ import { Footer } from "@/components/layout/Footer";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { CTASection } from "@/components/sections/CTASection";
 import { TeamCard } from "@/components/cards/TeamCard";
-import teamData from "@/data/team.json";
+import { useWpData } from "@/hooks/useWpData";
 
 const Team = () => {
-  const teamMembers = teamData.all;
+  const teamData = useWpData("team");
+  const teamMembers = teamData?.all ?? [];
 
   return (
     <main className="min-w-[320px]">

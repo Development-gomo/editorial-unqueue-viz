@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useWpData } from "@/hooks/useWpData";
 
 export function VideoHero() {
+  const heroData = useWpData("hero");
   const videoRef = useRef(null);
   const [isLoaded, setIsLoaded] = useState(false);
 

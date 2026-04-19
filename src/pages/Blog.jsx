@@ -2,10 +2,11 @@ import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { BlogCard, FeaturedBlogCard } from "@/components/cards/BlogCard";
-import blogData from "@/data/blog.json";
+import { useWpData } from "@/hooks/useWpData";
 
 const Blog = () => {
-  const posts = blogData.all;
+  const blogData = useWpData("blog");
+  const posts = blogData?.all ?? [];
   const featuredPost = posts.find((p) => p.featured);
   const regularPosts = posts.filter((p) => !p.featured);
 

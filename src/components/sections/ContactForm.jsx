@@ -4,9 +4,11 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import contactData from "@/data/contact.json";
+import { useWpData } from "@/hooks/useWpData";
 
 export function ContactForm() {
+  const contactData = useWpData("contact");
+  const projectTypes = contactData?.projectTypes ?? [];
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -44,7 +46,7 @@ export function ContactForm() {
         <div className="space-y-2">
           <label className="font-sans text-sm text-muted-foreground">Project Type</label>
           <select className="w-full h-12 rounded-xl border border-border bg-muted/50 px-4 font-sans focus:bg-card focus:border-primary focus:outline-none transition-all">
-            {contactData.projectTypes.map((type) => (
+            {projectTypes.map((type) => (
               <option key={type.value} value={type.value}>
                 {type.label}
               </option>
