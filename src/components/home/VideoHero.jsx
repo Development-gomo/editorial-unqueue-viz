@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import heroData from "@/data/hero.json";
+import { useWpData } from "@/hooks/useWpData";
 
 export function VideoHero() {
   const videoRef = useRef(null);
