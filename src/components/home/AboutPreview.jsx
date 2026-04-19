@@ -6,6 +6,8 @@ import { useWpData } from "@/hooks/useWpData";
 export function AboutPreview() {
   const aboutData = useWpData("about");
   const stats = aboutData?.stats ?? [];
+
+  return (
     <section className="py-24 md:py-32 bg-muted relative overflow-hidden">
       <div className="absolute top-1/2 left-0 -translate-y-1/2 font-display text-[15vw] font-extrabold text-foreground/[0.02] whitespace-nowrap pointer-events-none select-none">
         BOLD CREATIVE
