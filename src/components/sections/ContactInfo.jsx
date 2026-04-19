@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
-import contactData from "@/data/contact.json";
+import { useWpData } from "@/hooks/useWpData";
 
 const iconMap = { Mail, Phone, MapPin };
 
@@ -18,40 +18,55 @@ function InfoRow({ icon: Icon, label, children }) {
 }
 
 export function ContactInfo() {
-  const { info } = contactData;
+  const contactData = useWpData("contact");
+  const info = contactData?.info ?? {};
+  const address = info.address ?? {};
+
   return (
     <div className="lg:pl-8">
       <h2 className="font-display text-3xl md:text-4xl font-bold mb-8">
         Get in <span className="text-primary">Touch</span>
       </h2>
       <div className="space-y-6">
-        <InfoRow icon={iconMap.Mail} label="Email">
-          <a href={`mailto:${info.email}`} className="text-lg hover:text-primary transition-colors">
-            {info.email}
-          </a>
-        </InfoRow>
-        <InfoRow icon={iconMap.Phone} label="Phone">
-          <a href={`tel:${info.phone}`} className="text-lg hover:text-primary transition-colors">
-            {info.phone}
-          </a>
-        </InfoRow>
-        <InfoRow icon={iconMap.MapPin} label="Office">
-          <p className="text-lg">
-            {info.address.line1}
-            <br />
-            {info.address.line2}
-          </p>
-        </InfoRow>
+        {info.email && (
+          <InfoRow icon={iconMap.Mail} label="Email">
+            <a href={`mailto:${info.email}`} className="text-lg hover:text-primary transition-colors">
+              {info.email}
+            </a>
+          </InfoRow>
+        )}
+        {info.phone && (
+          <InfoRow icon={iconMap.Phone} label="Phone">
+            <a href={`tel:${info.phone}`} className="text-lg hover:text-primary transition-colors">
+              {info.phone}
+            </a>
+          </InfoRow>
+        )}
+        {(address.line1 || address.line2) && (
+          <InfoRow icon={iconMap.MapPin} label="Office">
+            <p className="text-lg">
+              {address.line1}
+              {address.line2 && (
+                <>
+                  <br />
+                  {address.line2}
+                </>
+              )}
+            </p>
+          </InfoRow>
+        )}
       </div>
 
-      <div className="mt-10 aspect-[4/3] rounded-2xl relative overflow-hidden">
-        <img
-          src={info.mapImage}
-          alt="Office location"
-          className="w-full h-full object-cover grayscale"
-        />
-        <div className="absolute inset-0 bg-primary/10" />
-      </div>
+      {info.mapImage && (
+        <div className="mt-10 aspect-[4/3] rounded-2xl relative overflow-hidden">
+          <img
+            src={info.mapImage}
+            alt="Office location"
+            className="w-full h-full object-cover grayscale"
+          />
+          <div className="absolute inset-0 bg-primary/10" />
+        </div>
+      )}
     </div>
   );
 }

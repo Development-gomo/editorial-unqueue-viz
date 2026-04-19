@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Instagram, Twitter, Linkedin, Dribbble } from "lucide-react";
-import footerData from "@/data/footer.json";
-import navData from "@/data/navigation.json";
+import { useWpData } from "@/hooks/useWpData";
 
 const iconMap = { Instagram, Twitter, Linkedin, Dribbble };
 
 export function Footer() {
+  const footerData = useWpData("footer");
+  const navData = useWpData("navigation");
+  const navLogo = navData?.logo ?? { text: "BOLD", accent: "*" };
+  const brandDesc = footerData?.brand?.description ?? "";
+  const navItems = footerData?.navigation ?? [];
+  const socials = footerData?.social ?? [];
+  const legals = footerData?.legal ?? [];
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="border-b border-secondary-foreground/10">
@@ -33,10 +39,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-2">
             <Link to="/" className="font-display text-3xl font-extrabold tracking-tighter">
-              {navData.logo.text}<span className="text-primary">{navData.logo.accent}</span>
+              {navLogo.text}<span className="text-primary">{navLogo.accent}</span>
             </Link>
             <p className="mt-5 text-secondary-foreground/60 max-w-md leading-relaxed">
-              {footerData.brand.description}
+              {brandDesc}
             </p>
           </div>
 
@@ -45,7 +51,7 @@ export function Footer() {
               Navigation
             </h3>
             <ul className="space-y-4">
-              {footerData.navigation.map((link) => (
+              {navItems.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
@@ -63,7 +69,7 @@ export function Footer() {
               Follow Us
             </h3>
             <div className="flex gap-3">
-              {footerData.social.map((social) => {
+              {socials.map((social) => {
                 const Icon = iconMap[social.icon];
                 return (
                   <a
@@ -85,7 +91,7 @@ export function Footer() {
             © {new Date().getFullYear()} BOLD Agency. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-secondary-foreground/40">
-            {footerData.legal.map((item) => (
+            {legals.map((item) => (
               <a key={item.name} href={item.href} className="hover:text-primary transition-colors">
                 {item.name}
               </a>

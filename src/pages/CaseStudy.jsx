@@ -4,11 +4,17 @@ import { Footer } from "@/components/layout/Footer";
 import { ArrowLeft } from "lucide-react";
 import { CaseStudyContent, ImageGallery } from "@/components/sections/CaseStudyContent";
 import { CTASection } from "@/components/sections/CTASection";
-import caseStudies from "@/data/caseStudies.json";
+import { useWpData } from "@/hooks/useWpData";
 
 const CaseStudy = () => {
   const { id } = useParams();
-  const study = caseStudies[id || "1"] || caseStudies["1"];
+  const caseStudies = useWpData("caseStudies") || {};
+  const fallbackId = Object.keys(caseStudies)[0];
+  const study = caseStudies[id] || caseStudies[fallbackId] || {
+    title: "", category: "", year: "", client: "",
+    description: "", challenge: "", solution: "",
+    heroImage: "", images: [],
+  };
 
   return (
     <main className="min-w-[320px]">

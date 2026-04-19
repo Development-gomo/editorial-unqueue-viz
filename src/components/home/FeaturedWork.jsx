@@ -1,10 +1,11 @@
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import { cn } from "@/lib/utils";
-import projectsData from "@/data/projects.json";
+import { useWpData } from "@/hooks/useWpData";
 
 export function FeaturedWork() {
-  const projects = projectsData.featured;
+  const projectsData = useWpData("projects");
+  const projects = projectsData?.featured ?? [];
 
   return (
     <section className="py-24 md:py-32 bg-background">

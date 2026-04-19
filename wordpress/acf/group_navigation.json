@@ -1,0 +1,30 @@
+[
+  {
+    "key": "group_bold_navigation",
+    "title": "BOLD — Navigation",
+    "fields": [
+      {
+        "key": "field_bold_nav",
+        "label": "Navigation",
+        "name": "navigation",
+        "type": "group",
+        "layout": "block",
+        "sub_fields": [
+          { "key": "field_bold_nav_logo_text", "label": "Logo text", "name": "logo_text", "type": "text", "default_value": "BOLD" },
+          { "key": "field_bold_nav_logo_accent", "label": "Logo accent char", "name": "logo_accent", "type": "text", "default_value": "*" },
+          {
+            "key": "field_bold_nav_links", "label": "Links", "name": "links", "type": "repeater",
+            "layout": "table", "button_label": "Add link",
+            "sub_fields": [
+              { "key": "field_bold_nav_link_name", "label": "Name", "name": "name", "type": "text" },
+              { "key": "field_bold_nav_link_href", "label": "Href", "name": "href", "type": "text" }
+            ]
+          },
+          { "key": "field_bold_nav_cta_text", "label": "CTA text", "name": "cta_text", "type": "text", "default_value": "Let's Talk" },
+          { "key": "field_bold_nav_cta_href", "label": "CTA href", "name": "cta_href", "type": "text", "default_value": "/contact" }
+        ]
+      }
+    ],
+    "location": [[{ "param": "options_page", "operator": "==", "value": "bold-navigation" }]]
+  }
+]

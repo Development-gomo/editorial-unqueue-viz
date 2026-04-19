@@ -1,9 +1,10 @@
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { TeamCard } from "@/components/cards/TeamCard";
-import teamData from "@/data/team.json";
+import { useWpData } from "@/hooks/useWpData";
 
 export function TeamPreview() {
-  const teamMembers = teamData.preview;
+  const teamData = useWpData("team");
+  const teamMembers = teamData?.preview ?? [];
 
   return (
     <section className="py-24 md:py-32 bg-secondary text-secondary-foreground">

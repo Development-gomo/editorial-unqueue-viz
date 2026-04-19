@@ -5,9 +5,11 @@ import { ImageBanner } from "@/components/sections/ImageBanner";
 import { StorySection } from "@/components/sections/StorySection";
 import { ValuesGrid } from "@/components/sections/ValuesGrid";
 import { CTASection } from "@/components/sections/CTASection";
-import aboutData from "@/data/about.json";
+import { useWpData } from "@/hooks/useWpData";
 
 const About = () => {
+  const aboutData = useWpData("about");
+
   return (
     <main className="min-w-[320px]">
       <Navigation />
@@ -20,20 +22,22 @@ const About = () => {
         variant="dark"
       />
 
-      <ImageBanner image={aboutData.heroImage} alt="Our team at work" />
+      {aboutData?.heroImage && (
+        <ImageBanner image={aboutData.heroImage} alt="Our team at work" />
+      )}
 
       <StorySection
         eyebrow="Our Story"
         title="From a small studio to a"
         accent="global creative force"
-        paragraphs={aboutData.story.paragraphs}
+        paragraphs={aboutData?.story?.paragraphs ?? []}
       />
 
       <ValuesGrid
         eyebrow="Our Values"
         title="What drives"
         accent="everything we do"
-        values={aboutData.values}
+        values={aboutData?.values ?? []}
       />
 
       <CTASection

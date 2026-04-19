@@ -1,0 +1,40 @@
+[
+  {
+    "key": "group_bold_footer",
+    "title": "BOLD — Footer",
+    "fields": [
+      {
+        "key": "field_bold_footer", "label": "Footer", "name": "footer", "type": "group", "layout": "block",
+        "sub_fields": [
+          { "key": "field_bold_footer_desc", "label": "Brand description", "name": "brand_description", "type": "textarea", "rows": 3 },
+          {
+            "key": "field_bold_footer_nav", "label": "Navigation", "name": "navigation", "type": "repeater", "layout": "table",
+            "sub_fields": [
+              { "key": "field_bold_footer_nav_name", "label": "Name", "name": "name", "type": "text" },
+              { "key": "field_bold_footer_nav_href", "label": "Href", "name": "href", "type": "text" }
+            ]
+          },
+          {
+            "key": "field_bold_footer_social", "label": "Social", "name": "social", "type": "repeater", "layout": "table",
+            "sub_fields": [
+              { "key": "field_bold_footer_social_name", "label": "Name", "name": "name", "type": "text" },
+              {
+                "key": "field_bold_footer_social_icon", "label": "Lucide icon", "name": "icon", "type": "select",
+                "choices": { "Instagram": "Instagram", "Twitter": "Twitter", "Linkedin": "Linkedin", "Dribbble": "Dribbble", "Facebook": "Facebook", "Youtube": "Youtube", "Github": "Github" }
+              },
+              { "key": "field_bold_footer_social_href", "label": "Href", "name": "href", "type": "url" }
+            ]
+          },
+          {
+            "key": "field_bold_footer_legal", "label": "Legal links", "name": "legal", "type": "repeater", "layout": "table",
+            "sub_fields": [
+              { "key": "field_bold_footer_legal_name", "label": "Name", "name": "name", "type": "text" },
+              { "key": "field_bold_footer_legal_href", "label": "Href", "name": "href", "type": "text" }
+            ]
+          }
+        ]
+      }
+    ],
+    "location": [[{ "param": "options_page", "operator": "==", "value": "bold-footer" }]]
+  }
+]

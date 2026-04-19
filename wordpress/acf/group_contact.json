@@ -1,0 +1,26 @@
+[
+  {
+    "key": "group_bold_contact",
+    "title": "BOLD — Contact",
+    "fields": [
+      {
+        "key": "field_bold_contact", "label": "Contact", "name": "contact", "type": "group", "layout": "block",
+        "sub_fields": [
+          { "key": "field_bold_contact_email", "label": "Email", "name": "email", "type": "email" },
+          { "key": "field_bold_contact_phone", "label": "Phone", "name": "phone", "type": "text" },
+          { "key": "field_bold_contact_addr1", "label": "Address line 1", "name": "address_line1", "type": "text" },
+          { "key": "field_bold_contact_addr2", "label": "Address line 2", "name": "address_line2", "type": "text" },
+          { "key": "field_bold_contact_map", "label": "Map image", "name": "map_image", "type": "image", "return_format": "url", "preview_size": "medium" },
+          {
+            "key": "field_bold_contact_types", "label": "Project types (form dropdown)", "name": "project_types", "type": "repeater", "layout": "table",
+            "sub_fields": [
+              { "key": "field_bold_contact_type_value", "label": "Value", "name": "value", "type": "text" },
+              { "key": "field_bold_contact_type_label", "label": "Label", "name": "label", "type": "text" }
+            ]
+          }
+        ]
+      }
+    ],
+    "location": [[{ "param": "options_page", "operator": "==", "value": "bold-contact" }]]
+  }
+]

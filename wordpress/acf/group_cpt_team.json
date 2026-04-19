@@ -1,0 +1,12 @@
+[
+  {
+    "key": "group_bold_cpt_team",
+    "title": "BOLD — Team Member Fields",
+    "fields": [
+      { "key": "field_bold_team_role", "label": "Role", "name": "role", "type": "text" },
+      { "key": "field_bold_team_bio", "label": "Bio", "name": "bio", "type": "textarea", "rows": 3 },
+      { "key": "field_bold_team_preview", "label": "Show on home preview", "name": "show_in_preview", "type": "true_false", "ui": 1 }
+    ],
+    "location": [[{ "param": "post_type", "operator": "==", "value": "bold_team" }]]
+  }
+]

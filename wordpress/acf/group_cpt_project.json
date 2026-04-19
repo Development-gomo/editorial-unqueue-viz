@@ -1,0 +1,14 @@
+[
+  {
+    "key": "group_bold_cpt_project",
+    "title": "BOLD — Project Fields",
+    "fields": [
+      {
+        "key": "field_bold_proj_size", "label": "Grid size", "name": "size", "type": "select",
+        "choices": { "small": "small", "large": "large" }, "default_value": "small"
+      },
+      { "key": "field_bold_proj_featured", "label": "Show on home (featured)", "name": "is_featured", "type": "true_false", "ui": 1 }
+    ],
+    "location": [[{ "param": "post_type", "operator": "==", "value": "bold_project" }]]
+  }
+]
