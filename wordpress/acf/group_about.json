@@ -1,0 +1,36 @@
+[
+  {
+    "key": "group_bold_about",
+    "title": "BOLD — About",
+    "fields": [
+      {
+        "key": "field_bold_about", "label": "About", "name": "about", "type": "group", "layout": "block",
+        "sub_fields": [
+          {
+            "key": "field_bold_about_stats", "label": "Stats", "name": "stats", "type": "repeater", "layout": "table",
+            "sub_fields": [
+              { "key": "field_bold_about_stat_num", "label": "Number", "name": "number", "type": "text" },
+              { "key": "field_bold_about_stat_label", "label": "Label", "name": "label", "type": "text" }
+            ]
+          },
+          {
+            "key": "field_bold_about_values", "label": "Values", "name": "values", "type": "repeater", "layout": "row",
+            "sub_fields": [
+              { "key": "field_bold_about_val_num", "label": "Number", "name": "number", "type": "text" },
+              { "key": "field_bold_about_val_title", "label": "Title", "name": "title", "type": "text" },
+              { "key": "field_bold_about_val_desc", "label": "Description", "name": "description", "type": "textarea", "rows": 2 }
+            ]
+          },
+          {
+            "key": "field_bold_about_story", "label": "Story paragraphs", "name": "story_paragraphs", "type": "repeater", "layout": "row",
+            "sub_fields": [
+              { "key": "field_bold_about_story_text", "label": "Paragraph", "name": "text", "type": "textarea", "rows": 4 }
+            ]
+          },
+          { "key": "field_bold_about_hero", "label": "Hero image", "name": "hero_image", "type": "image", "return_format": "url", "preview_size": "medium" }
+        ]
+      }
+    ],
+    "location": [[{ "param": "options_page", "operator": "==", "value": "bold-about" }]]
+  }
+]

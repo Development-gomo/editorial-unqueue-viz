@@ -1,0 +1,11 @@
+[
+  {
+    "key": "group_bold_cpt_blog",
+    "title": "BOLD — Blog Post Fields",
+    "fields": [
+      { "key": "field_bold_blog_featured", "label": "Featured (large card)", "name": "is_featured", "type": "true_false", "ui": 1 },
+      { "key": "field_bold_blog_preview", "label": "Show on home preview", "name": "show_in_preview", "type": "true_false", "ui": 1 }
+    ],
+    "location": [[{ "param": "post_type", "operator": "==", "value": "bold_post" }]]
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "key": "group_bold_cpt_case_study",
+    "title": "BOLD — Case Study Fields",
+    "fields": [
+      { "key": "field_bold_cs_category", "label": "Category", "name": "category", "type": "text" },
+      { "key": "field_bold_cs_year", "label": "Year", "name": "year", "type": "text" },
+      { "key": "field_bold_cs_client", "label": "Client", "name": "client", "type": "text" },
+      { "key": "field_bold_cs_desc", "label": "Description", "name": "description", "type": "textarea", "rows": 2 },
+      { "key": "field_bold_cs_challenge", "label": "Challenge", "name": "challenge", "type": "textarea", "rows": 4 },
+      { "key": "field_bold_cs_solution", "label": "Solution", "name": "solution", "type": "textarea", "rows": 4 },
+      { "key": "field_bold_cs_hero", "label": "Hero image", "name": "hero_image", "type": "image", "return_format": "url", "preview_size": "medium" },
+      {
+        "key": "field_bold_cs_images", "label": "Gallery images", "name": "images", "type": "repeater", "layout": "block",
+        "sub_fields": [
+          { "key": "field_bold_cs_img", "label": "Image", "name": "image", "type": "image", "return_format": "url", "preview_size": "medium" }
+        ]
+      }
+    ],
+    "location": [[{ "param": "post_type", "operator": "==", "value": "bold_case_study" }]]
+  }
+]

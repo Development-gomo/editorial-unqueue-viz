@@ -1,0 +1,21 @@
+[
+  {
+    "key": "group_bold_services",
+    "title": "BOLD — Services Marquee (fallback)",
+    "fields": [
+      {
+        "key": "field_bold_services", "label": "Services", "name": "services", "type": "group", "layout": "block",
+        "instructions": "Optional. Used only if the 'Services' CPT has no entries. Add a Services CPT entry to use that instead.",
+        "sub_fields": [
+          {
+            "key": "field_bold_services_items", "label": "Items", "name": "items", "type": "repeater", "layout": "table",
+            "sub_fields": [
+              { "key": "field_bold_services_item_name", "label": "Service name", "name": "name", "type": "text" }
+            ]
+          }
+        ]
+      }
+    ],
+    "location": [[{ "param": "options_page", "operator": "==", "value": "bold-services" }]]
+  }
+]
