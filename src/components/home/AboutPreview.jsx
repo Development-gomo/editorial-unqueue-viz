@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import aboutData from "@/data/about.json";
+import { useWpData } from "@/hooks/useWpData";
 
 export function AboutPreview() {
-  return (
+  const aboutData = useWpData("about");
+  const stats = aboutData?.stats ?? [];
     <section className="py-24 md:py-32 bg-muted relative overflow-hidden">
       <div className="absolute top-1/2 left-0 -translate-y-1/2 font-display text-[15vw] font-extrabold text-foreground/[0.02] whitespace-nowrap pointer-events-none select-none">
         BOLD CREATIVE
@@ -35,7 +36,7 @@ export function AboutPreview() {
           </div>
 
           <div className="grid grid-cols-2 gap-4 md:gap-6">
-            {aboutData.stats.map((stat, index) => (
+            {stats.map((stat, index) => (
               <div
                 key={stat.label}
                 className="bg-card rounded-2xl p-6 md:p-8 shadow-elegant hover-lift"
