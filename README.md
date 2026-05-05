@@ -1,4 +1,4 @@
-# Welcome to your visha; project
+# Welcome to your vishal k project
 
 ## Project info
 
